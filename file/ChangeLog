@@ -1,0 +1,14 @@
+2023.01.10 v3.1.6 update:
+	1. 增加线粒体染色体名称的参数，适用于不同物种的不同线粒体名称。
+		a. 生成新的wdl及refCode json 文件。
+
+2022.11.30 update:
+	1. 更新scSTAR，增加fiveEnd，适用于5端数据分析。
+2022.11.10 update:
+	1. wdl:samtools index -c
+	# 由于存在染色体长度大于512M的情况，bai索引无法正常使用，更换为csi索引。
+
+2022.10.31 update:
+	1. 增加scSTAR去除adapter命令行；
+	2. 替换root为pub目录；
+	3. 修改saturation_sp.py,增加63行，注释掉62行。
