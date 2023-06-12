@@ -25,6 +25,7 @@ parser.add_argument('-q','--quality',type=int, default=20, help='Minimal map qua
 parser.add_argument('-@','--threads',type=int, default=10, help='Analysis threads. Default is 10')
 parser.add_argument('-n','--name',type=str, help='sample name')
 parser.add_argument('-b','--beadsstat',metavar='FILE',type=str, help='bead stat')
+parser.add_argument('-c','--barcodetran',metavar='FILE',type=str, help='bead stat')
 args = parser.parse_args()
 
 inbam = args.inbam
@@ -33,6 +34,7 @@ quality = args.quality
 threads = args.threads
 name = args.name
 beadstat = args.beadsstat
+barcodetran = args.barcodetran
 
 def time_print(str):
 	print("\033[32m%s\033[0m %s"%(time.strftime('[%H:%M:%S]',time.localtime(time.time())), str))
@@ -132,7 +134,7 @@ def main():
     # totalReads = int(df[1][2])
     
     raw_beads_stat = pd.read_table(beadstat,sep = '\t')
-    barcodeTranslate = pd.read_table(os.path.join(outdir,'%s_barcodeTranslate.txt'%name),sep = '\t',header=None)
+    barcodeTranslate = pd.read_table(barcodetran,sep = '\t',header=None)
     barcodeTranslate.columns = ['BARCODE', 'CELL']
     beads_stat = pd.merge(raw_beads_stat,barcodeTranslate,how = 'inner',on='BARCODE')
     beads_stat = beads_stat.drop(['BARCODE','GN'], axis=1)
