@@ -7,7 +7,7 @@ library(RColorBrewer)
 library(scMCA)
 library(patchwork)
 library(dplyr)
-source("/jdfssz1/ST_SUPERCELLS/PUB/scRNA/pipeline/v3.1.5/common/bin/scripts/getColorPalette.R")
+source("/scRNA-seq-v3.1.5-pipeline/bin/scripts/getColorPalette.R")
 
 
 #Get the parameters
